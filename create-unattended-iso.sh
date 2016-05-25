@@ -184,7 +184,7 @@ sed -i "s@{{hostname}}@$hostname@g" $tmp/iso_new/preseed/$seed_file
 sed -i "s@{{timezone}}@$timezone@g" $tmp/iso_new/preseed/$seed_file
 
 # calculate checksum for seed file
-seed_checksum=$(md5sum $tmp/iso_new/preseed/$seed_file)
+seed_checksum=$(md5sum $tmp/iso_new/preseed/$seed_file|cut -d' ' -f1)
 
 # add the autoinstall option to the menu
 sed -i "/label install/ilabel autoinstall\n\
